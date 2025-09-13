@@ -1,9 +1,10 @@
-class PizzaNovgorod (
+class PizzaKazan (
     neapolitanPizzaPrice: Double,  romanPizzaPrice: Double,
     sicilianPizzaPrice: Double,  tyroleanPizzaPrice: Double
 ) : PizzaCity (
     neapolitanPizzaPrice, romanPizzaPrice, sicilianPizzaPrice, tyroleanPizzaPrice
-), Drink, CheckPhoto, Sauce {
+), CheckPhoto, Drink, Sauce {
+    
     override fun drinkSale() {
         println("Вы будете кофе?")
         println("1. Да \n2. Нет")
@@ -20,6 +21,7 @@ class PizzaNovgorod (
             println("Вы отказались от кофе.")
         }
     }
+    
     override fun showCheckPhoto() {
         println("У вас есть фото чека?")
         println("1. Да \n2. Нет")
@@ -33,6 +35,7 @@ class PizzaNovgorod (
             println("Вы отказались показать чек.")
         }
     }
+    
     override fun giveSauce() {
         println("Желаете соус?")
         println("1. Да \n2. Нет")
@@ -53,7 +56,6 @@ class PizzaNovgorod (
                 }
                 "3" -> {
                     println("Отмена")
-
                 }
                 else -> {
                     println("Неверный выбор. Возврат в меню выбора соуса.")
@@ -63,36 +65,33 @@ class PizzaNovgorod (
             println("Вы отказались от соуса.")
             return
         }
-
     }
-
-
 
     override fun neapolitanPizzaSale() {
         incrementNeapolitanPizzaCount()
         setCurrentPizzaType(0)
         setCurrentOrderPizzaPrice(neapolitanPizzaPrice)
-        println("Спасибо за покупку неаполитанской пиццы в Нижнем Новгороде")
+        println("Спасибо за покупку неаполитанской пиццы в Казани")
     }
 
     override fun romanPizzaSale() {
         incrementRomanPizzaCount()
         setCurrentPizzaType(1)
         setCurrentOrderPizzaPrice(romanPizzaPrice)
-        println("Спасибо за покупку римской пиццы в Нижнем Новгороде")
+        println("Спасибо за покупку римской пиццы в Казани")
     }
 
     override fun sicilianPizzaSale() {
         incrementSicilianPizzaCount()
         setCurrentPizzaType(2)
         setCurrentOrderPizzaPrice(sicilianPizzaPrice)
-        println("Спасибо за покупку сицилийской пиццы в Нижнем Новгороде")
+        println("Спасибо за покупку сицилийской пиццы в Казани")
     }
 
     override fun tyroleanPizzaSale() {
         incrementTyroleanPizzaCount()
         setCurrentPizzaType(3)
         setCurrentOrderPizzaPrice(tyroleanPizzaPrice)
-        println("Спасибо за покупку тирольской пиццы в Нижнем Новгороде")
+        println("Спасибо за покупку тирольской пиццы в Казани")
     }
 }

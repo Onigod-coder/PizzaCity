@@ -11,18 +11,21 @@ fun main() {
     )
     val pizzaNovgorod = PizzaNovgorod(neapolitanPizzaPrice = 300.0, romanPizzaPrice = 300.5,
         sicilianPizzaPrice = 600.5, tyroleanPizzaPrice = 700.0)
+    val pizzaKazan = PizzaKazan(neapolitanPizzaPrice = 250.0, romanPizzaPrice = 280.0,
+        sicilianPizzaPrice = 320.0, tyroleanPizzaPrice = 350.0)
     var currentPizzaCity:PizzaCity
 
 
     while (true) {
         println("Добрый день! Выберете город")
-        println("1. Москва \n2. Санкт-Петербург \n3. Нижний Новгород \n4. Выход из программы")
+        println("1. Москва \n2. Санкт-Петербург \n3. Нижний Новгород \n4. Казань \n5. Выход из программы")
 
         currentPizzaCity = when (readln()) {
             "1" -> pizzaMoscow
             "2" -> pizzaPeter
             "3" -> pizzaNovgorod
-            "4" -> break
+            "4" -> pizzaKazan
+            "5" -> break
             else -> {
                 println("ERROR")
                 continue
@@ -50,11 +53,15 @@ fun selectAddService(currentPizzaCity: PizzaCity) {
         currentPizzaCity.giveSauce()
 
     }
+    
+    // Показываем итоговую сумму заказа
+    currentPizzaCity.showOrderSummary()
 }
 
 private fun selectPizza(currentPizzaCity: PizzaCity) {
     when (readln()) {
         "1" -> {
+            currentPizzaCity.resetCurrentOrder() // Сбрасываем предыдущий заказ
             currentPizzaCity.neapolitanPizzaSale()
             selectAddService(currentPizzaCity)
 
@@ -62,16 +69,19 @@ private fun selectPizza(currentPizzaCity: PizzaCity) {
         }
 
         "2" -> {
+            currentPizzaCity.resetCurrentOrder() // Сбрасываем предыдущий заказ
             currentPizzaCity.romanPizzaSale()
             selectAddService(currentPizzaCity)
         }
 
         "3" -> {
+            currentPizzaCity.resetCurrentOrder() // Сбрасываем предыдущий заказ
             currentPizzaCity.sicilianPizzaSale()
             selectAddService(currentPizzaCity)
         }
 
         "4" -> {
+            currentPizzaCity.resetCurrentOrder() // Сбрасываем предыдущий заказ
             currentPizzaCity.tyroleanPizzaSale()
             selectAddService(currentPizzaCity)
         }
